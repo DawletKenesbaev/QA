@@ -1,21 +1,38 @@
 import { styled } from "styled-components";
 import { useState } from "react";
 
-function QA() {
+function QA({data,randomNumber}) {
+  console.log(randomNumber);
   const [isAsked,setIsAsked]= useState(false);
-
     return (
-        <Box>
-           <div className="questionBox">
-              <h3 className="question">What is it</h3>
-              <h4 onClick={()=>{setIsAsked(!isAsked)}} >{isAsked? 'Answer':'Close'}</h4>
-           </div>
-           <div className={isAsked? "answerBox active": "answerBox" }>
-            <p  className="answer" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro quaerat nihil ducimus similique iusto, facere nobis excepturi suscipit quam facilis magni alias quibusdam corrupti.
-            </p>
-            <a target="_blank" className="resourse" href="http//youtube.com">Resourse : http//dsf</a>
-           </div>
-        </Box>
+    //   <div>
+    //      {data.map((item,index) => (
+    //     <Box key={index} >
+    //     <div className="questionBox">
+    //       <h3 className="question">{item.question}</h3>
+    //       <h4 onClick={()=>{setIsAsked(!isAsked)}} >{isAsked? 'Answer':'Close'}</h4>
+    //    </div>
+    //    <div className={isAsked? "answerBox active": "answerBox" }>
+    //     <p  className="answer" >{item.answer}
+    //     </p>
+    //     <a target="_blank" className="resourse" href={item.resourse}>Resourse : {item.resourse}</a>
+    //    </div>
+    // </Box>
+    //   ))}
+    //   </div>
+    <Box >
+        <div className="questionBox">
+          <h3 className="question">{data[randomNumber].question}</h3>
+          <h4 onClick={()=>{setIsAsked(!isAsked)}} >{isAsked? 'Answer':'Close'}</h4>
+        </div>
+        <div className={isAsked? "answerBox active": "answerBox" }>
+          <p  className="answer" >{data[randomNumber].answer}
+          </p>
+          <a target="_blank" className="resourse" href={data[randomNumber].url}>Resourse:</a>
+        </div>
+     </Box>
+     
+
     )
 }
 const Box = styled.div`
@@ -37,6 +54,7 @@ const Box = styled.div`
   .question {
     font-size: 22px;
     font-weight:600;
+    width:90%;
   }
   .answerBox {
     padding:10px;

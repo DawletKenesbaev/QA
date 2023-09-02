@@ -8,7 +8,7 @@ function Footer() {
     return (
         <Foot>
             <h2>
-                Created by <srong className='strong'>Dawlet Kenesbaev</srong>
+                Created by <span className='strong'>Dawlet Kenesbaev</span>
             </h2>
             <div>
                 <a target="_blank" href="https://www.instagram.com/dawlet_kenesbaev/"><InstagramIcon  className="icon"/></a>
@@ -21,8 +21,8 @@ function Footer() {
     )
 }
 const Foot = styled.div`
- position: absolute;
  height: 100px;
+ position: absolute;
  background: #000;
  width: 100%;
  bottom: 0;

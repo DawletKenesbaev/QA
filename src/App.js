@@ -6,21 +6,26 @@ import QA from "./QA";
 import './App.css'
 import Footer from "./Footer";
 import { useState } from "react";
+import {data} from './data'
 function App() {
+  const [randomNumber,setRandomNumber]=useState(1)
+  const Random = () => {
+    setRandomNumber( Math.floor(Math.random()*(data.length)))
+  }
   const [modal,setModal]= useState(true);
   return (
     <>
      {modal?  <Divv>
        <SearchField />
        <div className="btnContainer">
-         <Btn>
+         <Btn onClick={Random}>
           Random question
          </Btn>
          <Btn onClick={()=>{setModal(!modal)}}>
            Add your question
          </Btn>
        </div>
-       <QA />
+       <QA data={data} randomNumber={randomNumber}/>
        <Footer />
     </Divv> :  <Modal modal={modal} setModal={setModal} />}
 
