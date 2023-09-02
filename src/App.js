@@ -32,7 +32,7 @@ function App() {
 const Divv = styled.div`
   background: rgb(48, 119, 226);
   margin:0 auto;
-  padding:0 30px;
+  padding:0;
   max-width: 1200px;
   min-height:100vh;
   display:flex;
