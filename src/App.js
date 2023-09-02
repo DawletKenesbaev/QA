@@ -33,7 +33,7 @@ const Divv = styled.div`
   background: rgb(48, 119, 226);
   margin:0 auto;
   padding:0;
-  max-width: 1200px;
+  max-width: 100%;
   min-height:100vh;
   display:flex;
   flex-direction:column;

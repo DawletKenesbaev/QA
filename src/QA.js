@@ -1,5 +1,5 @@
-import { styled } from "styled-components"
-import { useState } from "react"
+import { styled } from "styled-components";
+import { useState } from "react";
 
 function QA() {
   const [isAsked,setIsAsked]= useState(false);

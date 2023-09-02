@@ -18,3 +18,9 @@ body {
         row-gap: 20px;
     }
   }
+  @media only screen and (max-width: 600px) {
+    .btnContainer {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+  }
