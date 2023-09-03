@@ -18,6 +18,7 @@ function App() {
   return (
     <MyProvider>
      {modal?  <Divv>
+      <h1 className="logo">QA</h1>
        <SearchField />
        <div className="btnContainer">
          <Btn onClick={Random}>
@@ -44,6 +45,7 @@ const Divv = styled.div`
   flex-direction:column;
   align-items:center;
   position: relative;
+  overflow-x:hidden;
 `
 const Btn = styled.button`
  width:180px;

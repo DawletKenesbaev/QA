@@ -13,7 +13,7 @@ function QA({data,randomNumber}) {
     }
     const newData= Filtered(inputValue)
     return ( <ParentBox>
-      <span className="count">{newData.length? `${newData.length } results` : 'No result'} </span>
+     {newData.length?  <span className="count"> {newData.length } results  </span>: <h2 className="nothingFound">Nothing Found</h2> }
       {newData.map((item,index) => (
      <Box key={index} >
         <div className="questionBox">
@@ -68,29 +68,47 @@ const ParentBox = styled.div`
  .count {
   position:absolute;
   top: 15px;
-  left: -20%;
+  left: -12%;
   color:yellow;
   background-color:black;
   padding: 7px;
   border-radius: 20%;
+  @media only screen and (max-width: 600px) {
+    top: -16px;
+  }
+ }
+ .nothingFound {
+  font-weight:500;
+  font-size:18px;
+  margin-top: 10px;
+  color: yellow;
+  background: #000;
+  padding: 7px;
+  border-radius:3px;
  }
 `
 const Box = styled.div`
     @media only screen and (max-width: 600px) {
       width:300px;
     }
-  background: white;
+  background: black;
   width: 470px;
   margin: 20px 0;
+  color: yellow;
   border-radius: 5px;
+  border:3px solid yellow;
+
   .questionBox {
-    position: relative;
-    text-align  :center ;
+    display:flex;
+    text-align:center ;
+    justify-content:space-between;
+    align-items:center;
     padding: 7px;
     h4 {
-      position: absolute;
+      /* position: absolute;
       top: 10px;
-      right: 5px;
+      right: 5px; */
+      margin-left: 6px;
       cursor: pointer;
     }
   }
@@ -98,6 +116,9 @@ const Box = styled.div`
     font-size: 22px;
     font-weight:600;
     width:90%;
+    @media only screen and (max-width: 600px) {
+      width:80%;
+    }
   }
   .answerBox {
     padding:10px;
@@ -118,6 +139,7 @@ const Box = styled.div`
   .answer {
     font-size:18px;
     font-weight:500;
+    color: white;
 
   }
 `
