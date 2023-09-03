@@ -76,6 +76,9 @@ const ParentBox = styled.div`
  }
 `
 const Box = styled.div`
+    @media only screen and (max-width: 600px) {
+      width:300px;
+    }
   background: white;
   width: 470px;
   margin: 20px 0;
