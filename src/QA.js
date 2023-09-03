@@ -1,40 +1,74 @@
 import { styled } from "styled-components";
-import { useState } from "react";
-
+import { useContext, useState } from "react";
+import { MyContext } from "./MyContext";
+import React from "react";
 function QA({data,randomNumber}) {
-  console.log(randomNumber);
   const [isAsked,setIsAsked]= useState(false);
-    return (
-    //   <div>
-    //      {data.map((item,index) => (
-    //     <Box key={index} >
-    //     <div className="questionBox">
-    //       <h3 className="question">{item.question}</h3>
-    //       <h4 onClick={()=>{setIsAsked(!isAsked)}} >{isAsked? 'Answer':'Close'}</h4>
-    //    </div>
-    //    <div className={isAsked? "answerBox active": "answerBox" }>
-    //     <p  className="answer" >{item.answer}
-    //     </p>
-    //     <a target="_blank" className="resourse" href={item.resourse}>Resourse : {item.resourse}</a>
-    //    </div>
-    // </Box>
-    //   ))}
-    //   </div>
-    <Box >
+  const {inputValue}=useContext(MyContext)
+  function Filtered(title) {
+    if (!data.length) return []; // add a check for undefined data
+    return data.filter(item => 
+      item.question.toLowerCase().includes(title))
+  }
+
+  const newData = Filtered(inputValue)
+  return <>
+    {inputValue?      <ParentBox>
+      <span className="count">{newData.length? `${newData.length } results` : 'No result'} </span>
+      {newData.map((item,index) => (
+     <Box key={index} >
         <div className="questionBox">
-          <h3 className="question">{data[randomNumber].question}</h3>
+          <h3 className="question">{item.question}</h3>
           <h4 onClick={()=>{setIsAsked(!isAsked)}} >{isAsked? 'Answer':'Close'}</h4>
         </div>
         <div className={isAsked? "answerBox active": "answerBox" }>
-          <p  className="answer" >{data[randomNumber].answer}
-          </p>
-          <a target="_blank" className="resourse" href={data[randomNumber].url}>Resourse:</a>
+        <p  className="answer" >{item.answer}
+        </p>
+        <a target="_blank" className="resourse" href={item.resourse}>Resourse : {item.resourse}</a>
         </div>
      </Box>
-     
+   ))}
+      </ParentBox> :      <Box >
+          <div className="questionBox">
+            <h1>{inputValue}</h1>
+            <h3 className="question">{newData[randomNumber].question}</h3>
+            <h4 onClick={()=>{setIsAsked(!isAsked)}} >{isAsked? 'Answer':'Close'}</h4>
+          </div>
+          <div className={isAsked? "answerBox active": "answerBox" }>
+            <p  className="answer" >{newData[randomNumber].answer}
+            </p>
+            <a target="_blank" className="resourse" href={newData[randomNumber].url}>Resourse:</a>
+          </div>
+       </Box>}
+  </>
+  // function Arr(params) {
+  //   return (
+ 
+  //   )
+   
+  // }
+  // function Single(params) {
+  //   return (   
 
-    )
+       
+  
+  //     )
+  // }
+ 
 }
+const ParentBox = styled.div`
+ position: relative;
+ margin-bottom:150px;
+ .count {
+  position:absolute;
+  top:0 ;
+  left: -20%;
+  color:yellow;
+  background-color:black;
+  padding: 7px;
+  border-radius: 20%;
+ }
+`
 const Box = styled.div`
   background: white;
   width: 470px;
@@ -79,3 +113,5 @@ const Box = styled.div`
   }
 `
 export default QA
+
+

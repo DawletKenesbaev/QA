@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import { styled } from "styled-components"
+import { MyContext } from "./MyContext"
 
 function SearchField()  {
+   const {setInputValue}=useContext(MyContext)
+
    return (
-    <Search placeholder="Search question" />
+    <Search onChange={(e)=> setInputValue(e.target.value)} placeholder="Search question" />
    )
 }
 const Search = styled.input`
