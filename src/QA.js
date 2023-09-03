@@ -5,15 +5,14 @@ import React from "react";
 function QA({data,randomNumber}) {
   const [isAsked,setIsAsked]= useState(false);
   const {inputValue}=useContext(MyContext)
-  function Filtered(title) {
-    if (!data.length) return []; // add a check for undefined data
-    return data.filter(item => 
-      item.question.toLowerCase().includes(title))
-  }
-
-  const newData = Filtered(inputValue)
-  return <>
-    {inputValue?      <ParentBox>
+    if (inputValue) {
+    function Filtered(title) {
+      if (!data.length) return [];
+      return data.filter(item => 
+        item?.question.toLowerCase().includes(title))
+    }
+    const newData= Filtered(inputValue)
+    return ( <ParentBox>
       <span className="count">{newData.length? `${newData.length } results` : 'No result'} </span>
       {newData.map((item,index) => (
      <Box key={index} >
@@ -24,23 +23,30 @@ function QA({data,randomNumber}) {
         <div className={isAsked? "answerBox active": "answerBox" }>
         <p  className="answer" >{item.answer}
         </p>
-        <a target="_blank" className="resourse" href={item.resourse}>Resourse : {item.resourse}</a>
+        <a target="_blank" className="resourse" href={item.url}>Resourse : </a>
         </div>
      </Box>
    ))}
-      </ParentBox> :      <Box >
-          <div className="questionBox">
-            <h1>{inputValue}</h1>
-            <h3 className="question">{newData[randomNumber].question}</h3>
-            <h4 onClick={()=>{setIsAsked(!isAsked)}} >{isAsked? 'Answer':'Close'}</h4>
-          </div>
-          <div className={isAsked? "answerBox active": "answerBox" }>
-            <p  className="answer" >{newData[randomNumber].answer}
-            </p>
-            <a target="_blank" className="resourse" href={newData[randomNumber].url}>Resourse:</a>
-          </div>
-       </Box>}
-  </>
+      </ParentBox>)
+     
+  }
+  else {
+    return (
+      <Box >
+    <div className="questionBox">
+      <h3 className="question">{data[randomNumber].question}</h3>
+      <h4 onClick={()=>{setIsAsked(!isAsked)}} >{isAsked? 'Answer':'Close'}</h4>
+    </div>
+    <div className={isAsked? "answerBox active": "answerBox" }>
+      <p  className="answer" >{data[randomNumber].answer}
+      </p>
+      <a target="_blank" className="resourse" href={data[randomNumber].url}>Resourse:</a>
+    </div>
+    </Box>
+    )
+    
+  }
+  
   // function Arr(params) {
   //   return (
  
