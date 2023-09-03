@@ -54,8 +54,5 @@ export const data = [
         answer: 'positon: relative; What it really means is “relative to itself”. It limits the scope of absolutely positioned child elements. Any element that is a child of the relatively positioned element can be absolutely positioned within that block.',
         url : 'https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/'
     },
-//    
-// 
-// 
-// 
+
 ]
