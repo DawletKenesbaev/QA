@@ -8,7 +8,6 @@ import Footer from "./Footer";
 import { useState } from "react";
 import {data} from './data'
 import MyProvider, { MyContext } from "./MyContext";
-import MyConsumer from "./MyConsumer";
 function App() {
   const [randomNumber,setRandomNumber]=useState(1)
   const Random = () => {
@@ -20,7 +19,6 @@ function App() {
     <MyProvider>
      {modal?  <Divv>
        <SearchField />
-       <MyConsumer />
        <div className="btnContainer">
          <Btn onClick={Random}>
           Random question

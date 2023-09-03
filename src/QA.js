@@ -67,7 +67,7 @@ const ParentBox = styled.div`
  margin-bottom:150px;
  .count {
   position:absolute;
-  top:0 ;
+  top: 15px;
   left: -20%;
   color:yellow;
   background-color:black;
