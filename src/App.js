@@ -9,29 +9,30 @@ import { useState } from "react";
 import {data} from './data'
 import MyProvider, { MyContext } from "./MyContext";
 function App() {
-  const [randomNumber,setRandomNumber]=useState(1)
+  const [randomNumber,setRandomNumber]=useState(1);
+  const {setInputValue}=useContext(MyContext)
   const Random = () => {
-    setRandomNumber( Math.floor(Math.random()*(data.length)))
+    setRandomNumber( Math.floor(Math.random()*(data.length)));
+    setInputValue('')
   }
+ 
   const [modal,setModal]= useState(true);
-
   return (
-    <MyProvider>
-     {modal?  <Divv>
-      <h1 className="logo">QA</h1>
-       <SearchField />
-       <div className="btnContainer">
-         <Btn onClick={Random}>
-          Random question
-         </Btn>
-         <Btn onClick={()=>{setModal(!modal)}}>
-           Add your question
-         </Btn>
-       </div>
-       <QA data={data} randomNumber={randomNumber}/>
-       <Footer />
-    </Divv> :  <Modal modal={modal} setModal={setModal} />}
-    </MyProvider>
+    <Divv>
+     <h1 className="logo">QA</h1>
+      <SearchField />
+      <div className="btnContainer">
+        <Btn onClick={Random}>
+         Random question
+        </Btn>
+        <Btn onClick={()=>{setModal(!modal)}}>
+          Add your question
+        </Btn>
+      </div>
+      <QA data={data} randomNumber={randomNumber}/>
+      <Modal modal={modal} setModal={setModal}/>
+      <Footer />
+   </Divv>
   ) 
 }
 
@@ -47,13 +48,13 @@ const Divv = styled.div`
   position: relative;
   overflow-x:hidden;
 `
-const Btn = styled.button`
+export const Btn = styled.button`
  width:180px;
  padding:14px;
  border:3px solid transparent;
  border-radius: 6px;
  font-size:17px;
- color: rgba(37, 36, 36, 0.682);
+ color: black;
  cursor: pointer;
  &:hover {
   transition:1s ;

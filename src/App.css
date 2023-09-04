@@ -53,3 +53,26 @@ body {
     transform: rotate(360deg);
   }
 }
+.modul {
+  background: rgba(35, 29, 202, 0.827);
+  margin:0 auto;
+  padding:16px 10px;
+  width: 100%;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  position: absolute;
+  overflow-x:hidden;
+  z-index:4;
+  
+}
+.modul h2 {
+  font-weight: 500;
+  color: rgb(41, 38, 38);
+  margin: 5px 0;
+}
+
+.modulactive {
+  z-index: -1;
+}

@@ -50,8 +50,27 @@ export const data = [
         url : 'https://medium.com/@DaphneWatson/css-display-properties-block-inline-and-inline-block-how-to-tell-the-difference-7d3a1e6e3051'
     },
     {
-        question: 'What is positon: relative;',
+        question: 'What is positon relative',
         answer: 'positon: relative; What it really means is “relative to itself”. It limits the scope of absolutely positioned child elements. Any element that is a child of the relatively positioned element can be absolutely positioned within that block.',
+        url : 'https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/'
+    },
+    {
+        question: 'What is positon static',
+        answer: 'position: static; is the default for every single page element.',
+        url : 'https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/'
+    },
+    {
+        question: 'What is positon absolute',
+        answer: 'position: absolute; allows you to literally place any page element exactly where you want it. o An element with this type of positioning is not affected by other elements and it doesn’t affect other elements.',
+        url : 'https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/'
+    },{
+        question: 'What is positon  fixed',
+        answer: 'position: fixed; position element is positioned relative to the viewport.',
+        url : 'https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/'
+    },
+    {
+        question: 'What is positon sticky',
+        answer: 'position: sticky; element will just sit there like a static element, but as you scroll past it, if its parent element has room (usually: extra height) the sticky element will behave as if it’s fixed until that parent element is out of room.',
         url : 'https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/'
     },
 

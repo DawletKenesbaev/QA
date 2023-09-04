@@ -9,7 +9,7 @@ function SearchField()  {
     <Search onChange={(e)=> setInputValue(e.target.value)} placeholder="Search question" />
    )
 }
-const Search = styled.input`
+export const Search = styled.input`
     display:block;
     margin:40px 0;
     outline: none;
