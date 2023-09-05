@@ -72,6 +72,5 @@ export const data = [
         question: 'What is positon sticky',
         answer: 'position: sticky; element will just sit there like a static element, but as you scroll past it, if its parent element has room (usually: extra height) the sticky element will behave as if it’s fixed until that parent element is out of room.',
         url : 'https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/'
-    },
-
+    }
 ]
