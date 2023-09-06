@@ -83,7 +83,7 @@ const ParentBox = styled.div`
   margin-top: 10px;
   color: yellow;
   background: #000;
-  padding: 7px;
+  padding: 8px;
   border-radius:3px;
  }
 `
