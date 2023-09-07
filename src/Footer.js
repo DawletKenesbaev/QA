@@ -13,9 +13,8 @@ function Footer() {
             <div>
                 <a target="_blank" href="https://www.instagram.com/dawlet_kenesbaev/"><InstagramIcon  className="icon"/></a>
                 <a target="_blank" href="https://github.com/NUKUS777"><GitHubIcon  className="icon"/></a>
-                <a target="_blank" href="https://t.me/username8168"><TelegramIcon  className="icon"/></a>
+                <a target="_blank" href="https://t.me/javasriptacademy"><TelegramIcon  className="icon"/></a>
                 <a target="_blank" href="https://www.linkedin.com/in/dawlet-kenesbaev-1744b028b/"><LinkedInIcon  className="icon"/></a>
-
             </div>
         </Foot>
     )
